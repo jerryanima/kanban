@@ -34,8 +34,8 @@
 	appearance: none;
 	font-size: 15px;
 	color: #5E6C84;
-	margin-top: 15px;
 	cursor: pointer;
+	font-size: 18px;
 }
 
 .addButton:hover {
