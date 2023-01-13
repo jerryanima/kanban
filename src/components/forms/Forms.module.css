@@ -32,3 +32,8 @@
 	color: red;
 	font-size: 12px;
 }
+
+.select {
+	padding: 8px;
+	border-radius: 8px;
+}

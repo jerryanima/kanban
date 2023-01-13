@@ -5,7 +5,7 @@ const Footer = props => {
 		<footer className={css.footer}>
 			<div className={css.counts} />
 			<div className={css.copy}>
-				Created by <a href='https://github.com/ytokarevskaya' target='_blank' rel='noreferrer'>@ytokarevskaya</a>
+				Kanban board by Lapina Maria, 2023
 			</div>
 		</footer>
 	)
