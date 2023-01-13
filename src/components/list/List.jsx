@@ -5,8 +5,9 @@ import { LIST_TYPES } from '../../config'
 import { Link } from 'react-router-dom';
 
 const List = props => {
-	const {title, type, tasks, addNewTask} = props;
+	const {title, type, tasks, addNewTask, filterTasks} = props;
 	const [isFormViible, setFormViible] = useState(false);
+	const isNullFilter = filterTasks.length === 0;
 
 	const handleClick = () => {
 		setFormViible(!isFormViible)
@@ -22,11 +23,16 @@ const List = props => {
 					</Link>
 				)
 			})}
-			{isFormViible && (type === LIST_TYPES.BACKLOG) && (
-				<FormAddNewTask addNewTask={addNewTask} setFormViible={setFormViible}/>
+			
+			{isFormViible && (
+				<FormAddNewTask addNewTask={addNewTask} filterTasks={filterTasks} setFormViible={setFormViible}/>
 			)}
 			{!isFormViible && (
-				<button className={css.addButton} onClick={handleClick}>+ Add card</button>
+				<button 
+					className={css.addButton} 
+					onClick={handleClick} 
+					disabled={isNullFilter && type !== LIST_TYPES.BACKLOG}>+ Add card
+				</button>
 			)}
 		</div>
 	)

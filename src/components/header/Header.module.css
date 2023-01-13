@@ -3,12 +3,13 @@
 	background: #0067A3;
 	color: #fff;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	height: 55px;
+	padding: 0 20px;
 }
 
 .title {
 	font-size: 28px;
-	padding: 11px 0 18px 20px;
 }
 

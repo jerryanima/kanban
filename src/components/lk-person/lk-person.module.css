@@ -1,0 +1,43 @@
+.lk {
+	display: flex;
+	align-items: center;
+}
+
+.avatar {
+	padding-right: 6px;
+}
+
+.submenu {
+	background: #fff;
+	color: black;
+	position: absolute;
+	right: 20px;
+	top: 67px;
+	z-index: 99;
+	width: 120px;
+	margin: 0; 
+    padding: 7px;
+	border-radius: 5px;
+}
+
+.submenu::after {
+    content: ''; 
+    position: absolute; /* Абсолютное позиционирование */
+    left: 80px; 
+	bottom: 47px; /* Положение треугольника */
+	border: 15px solid transparent; 
+	border-bottom: 15px solid #fff;
+   }
+
+.submenu li {
+	font-size: 14px;
+	list-style-type: none;
+} 
+
+.submenu a {
+	text-decoration: none;
+} 
+
+a:hover {
+	color: #0079BF;
+}

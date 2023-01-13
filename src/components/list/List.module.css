@@ -41,3 +41,8 @@
 .addButton:hover {
 	color: #000;
 }
+
+.addButton:disabled {
+	cursor: none;
+	color: #fff;
+}

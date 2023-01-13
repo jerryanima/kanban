@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 
 
 const FormAddNewTask = props => {
-	const { addNewTask, setFormViible} = props;
+	const { addNewTask, setFormViible, filterTasks } = props;
 	const [values, setValues] = useState({
 		title:''
 	});
@@ -42,6 +42,14 @@ const FormAddNewTask = props => {
 				ref={inputRef}
 			/>
 			<button className={css.submit} type='submit'>Submit</button>
+			
+			{/* <select className={css.select} value={filterTasks.title} name='status' onChange={handleChange}>
+				{Object.values(filterTasks).map(task => {
+					return (
+						<option key={task.id} value={task.title}>{task.title}</option>
+					)
+				})}
+			</select> */}
 		</form>
 	)
 }

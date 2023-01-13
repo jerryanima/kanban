@@ -1,5 +1,5 @@
 import css from './Board.module.css'
-import { LIST_TYPES, LIST_COPY } from '../../config'
+import { LIST_TYPES, LIST_COPY, LIST_FILTER } from '../../config'
 import List from '../list/List';
 import uniqid from 'uniqid'
 
@@ -10,10 +10,10 @@ const Board = props => {
 		const newTask = {
 			id: uniqid(),
 			title,
-			description: 'This task has no description',
+			description: '',
 			status: LIST_TYPES.BACKLOG
 		}
-
+console.log(newTask);
 		setTasks([...tasks, newTask])
 	}
 
@@ -21,13 +21,15 @@ const Board = props => {
 		<div className={css.board}>
 			{Object.values(LIST_TYPES).map(type => {
 				const listTasks = tasks.filter(tasks => tasks.status === type)
+				const filterTasks = tasks.filter(tasks => tasks.status === LIST_FILTER[type])
 				return (
 					<List 
-						key = { type } 
+						key = { LIST_COPY[type] } 
 						type = { type } 
 						title = { LIST_COPY[type] } 
 						tasks = { listTasks }
-						addNewTask = { addNewTask }/>
+						addNewTask = { addNewTask }
+						filterTasks = {filterTasks}/>
 				)
 			})}
 		</div>

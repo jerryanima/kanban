@@ -12,4 +12,10 @@ const LIST_COPY = {
 	[LIST_TYPES.FINISHED]: 'Finished',
 }
 
-export { LIST_TYPES, LIST_COPY }
+const LIST_FILTER = {
+	[LIST_TYPES.READY]: 'backlog',
+	[LIST_TYPES.IN_PROGRESS]: 'ready',
+	[LIST_TYPES.FINISHED]: 'inProgress',
+} 
+
+export { LIST_TYPES, LIST_COPY, LIST_FILTER }
