@@ -1,9 +1,9 @@
 import css from './Forms.module.css'
 import { useState, useRef } from 'react';
-
+import { LIST_TYPES } from '../../config'
 
 const FormAddNewTask = props => {
-	const { addNewTask, setFormViible, filterTasks } = props;
+	const { updateStatus, addNewTask, setFormViible, filterTasks, typeList } = props;
 	const [values, setValues] = useState({
 		title:''
 	});
@@ -26,30 +26,40 @@ const FormAddNewTask = props => {
 		setValues({...values, title: e.target.value})
 	}
 
+	const handleStatusChange = (e) => {
+		updateStatus(e.target.value, typeList)
+		setFormViible(false)
+	}
+
 	return (
 		<form className={css.form} onSubmit={handleSubmit}>
 			{isNotValidate &&(
 				<div className={css.error}>Поле обязательно для заполнения</div>
 			)}
-			<input
-				className={css.input}
-				id='taskTitle'
-				name='title'
-				type='text'
-				placeholder='New task title...'
-				value={values.title}
-				onChange={handleChange}
-				ref={inputRef}
-			/>
-			<button className={css.submit} type='submit'>Submit</button>
+			{(typeList === LIST_TYPES.BACKLOG) && (
+			<div>
+				<input
+					className={css.input}
+					id='taskTitle'
+					name='title'
+					type='text'
+					placeholder='New task title...'
+					value={values.title}
+					onChange={handleChange}
+					ref={inputRef}
+				/>
+				<button className={css.submit} type='submit'>Submit</button>
+			</div>)}
 			
-			{/* <select className={css.select} value={filterTasks.title} name='status' onChange={handleChange}>
+			{(typeList !== LIST_TYPES.BACKLOG) && (
+			<select className={css.select} value={filterTasks.title} name='status' onChange={handleStatusChange}>
+				<option selected disabled>Select task...</option>
 				{Object.values(filterTasks).map(task => {
-					return (
-						<option key={task.id} value={task.title}>{task.title}</option>
+					return (			
+						<option key={task.id} value={task.id}>{task.title}</option>
 					)
 				})}
-			</select> */}
+			</select>)}
 		</form>
 	)
 }

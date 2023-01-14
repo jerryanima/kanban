@@ -14,15 +14,6 @@
 	margin: 0;
 }
 
-.status {
-	color: #fff;
-	background: #465571;
-	font-weight: bold;
-	margin: 0;
-	padding: 8px 20px;
-	border-radius: 20px;
-}
-
 
 .homeLink {
 	display: block;
@@ -41,4 +32,65 @@
 
 .emptyStateIcon {
 	width: 200px;
+}
+
+.close{
+    position: absolute;
+	right: 35px;
+	top: 106px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.close:before,
+.close:after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 1px;
+    background: #000;
+}
+
+.close:before {
+    webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close:after {
+    webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.btEdit {
+	background: #0079BF;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 0;
+	width: 102px;
+	cursor: pointer;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+.btEdit:hover {
+	background: #5d7194;
+}
+
+.btSave {
+	background: #015e94;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 0;
+	width: 102px;
+	cursor: pointer;
+	font-size: 18px;
+	margin-top: 15px;
+}
+
+.btSave:hover {
+	background: #5d7194;
 }

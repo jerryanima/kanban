@@ -5,7 +5,7 @@ import { LIST_TYPES } from '../../config'
 import { Link } from 'react-router-dom';
 
 const List = props => {
-	const {title, type, tasks, addNewTask, filterTasks} = props;
+	const {title, type, tasks, updateStatus, addNewTask, filterTasks} = props;
 	const [isFormViible, setFormViible] = useState(false);
 	const isNullFilter = filterTasks.length === 0;
 
@@ -25,7 +25,12 @@ const List = props => {
 			})}
 			
 			{isFormViible && (
-				<FormAddNewTask addNewTask={addNewTask} filterTasks={filterTasks} setFormViible={setFormViible}/>
+				<FormAddNewTask 
+					addNewTask={addNewTask} 
+					filterTasks={filterTasks} 
+					updateStatus={updateStatus} 
+					setFormViible={setFormViible}
+					typeList={type}/>
 			)}
 			{!isFormViible && (
 				<button 

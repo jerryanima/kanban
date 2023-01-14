@@ -13,8 +13,18 @@ const Board = props => {
 			description: '',
 			status: LIST_TYPES.BACKLOG
 		}
-console.log(newTask);
+
 		setTasks([...tasks, newTask])
+	}
+
+	const updateStatus = (taskId, newStatus) => {
+		const updatedTasks = tasks.map(task => {
+			if (task.id === taskId) {
+				return {...task, status: newStatus}
+			}
+			return task
+		})
+		setTasks(updatedTasks)
 	}
 
 	return (
@@ -28,6 +38,7 @@ console.log(newTask);
 						type = { type } 
 						title = { LIST_COPY[type] } 
 						tasks = { listTasks }
+						updateStatus = { updateStatus }
 						addNewTask = { addNewTask }
 						filterTasks = {filterTasks}/>
 				)
