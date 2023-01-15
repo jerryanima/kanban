@@ -52,8 +52,8 @@ const FormAddNewTask = props => {
 			</div>)}
 			
 			{(typeList !== LIST_TYPES.BACKLOG) && (
-			<select className={css.select} value={filterTasks.title} name='status' onChange={handleStatusChange}>
-				<option selected disabled>Select task...</option>
+			<select className={css.select} value={filterTasks.title} name='status' defaultValue='0' onChange={handleStatusChange}>
+				<option value='0' disabled>Select task...</option>
 				{Object.values(filterTasks).map(task => {
 					return (			
 						<option key={task.id} value={task.id}>{task.title}</option>

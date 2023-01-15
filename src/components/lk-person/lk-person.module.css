@@ -1,6 +1,7 @@
 .lk {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .avatar {
@@ -38,6 +39,7 @@
 	text-decoration: none;
 } 
 
-a:hover {
+.link:hover {
 	color: #0079BF;
+	cursor: pointer;
 }
